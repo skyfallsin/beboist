@@ -1,0 +1,47 @@
+Beboist
+=======
+The Beboist plugin provides a Rails interface to the Bebo Social Networking API.
+
+The plugin was designed from the ground-up to be flexible enough to accommodate
+any changes to the API, while at the same time providing a clean interface
+that will be familiar to most Rails developers.
+
+Setup
+=====
+1. Ensure the Beboist plugin is installed in your vendor/plugins folder
+2. Generate your config/bebo.yml file using: script/generate beboist_settings
+3. Fill in your appropriate app settings in bebo.yml. Ensure that your app name is right.
+4. Generate the first migration for your users table using: script/generate beboist_user_migration
+5. rake db:migrate
+6. In your application.rb, insert the following filters:
+		before_filter :reject_unadded_users
+		before_filter :find_bebo_user
+7. Write your app, and keep an eye on your logs to catch any possible error messages.
+
+Notes
+=====
+- The Beboist plugin uses Bebo's JSON API, and the 'json' gem to directly convert JSON objects to Ruby.
+- Works with Rails 2.0+, untested on Rails 1.2.
+- Look at the KNOWN_ISSUES file to see a list of currently open issues.
+- For a full list of methods, look at lib/bebo_api/bebo_types.rb within the plugin
+
+
+Calling Bebo Methods From Your App
+==================================
+All of the methods listed in Bebo's API are available in the following format, with the namespaces
+precluded by 'Bebo':
+	users.getInfo(:uids => "1,2,3")     -> BeboUsers.get_info(:uids => [1,2,3])
+
+
+Dependencies
+============
+json
+
+Acknowledgements
+================
+David Naffis for technical help
+Chad Fowler for his wonderful Facebooker plugin.
+
+Copyright (c) 2008 Intridea Inc. 
+Author: Pradeep Elankumaran
+Released under the MIT license

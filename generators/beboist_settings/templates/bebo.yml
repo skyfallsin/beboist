@@ -1,0 +1,14 @@
+development:
+    api_key: 
+    api_secret: 
+    callback_path: 
+
+test:
+    api_key: 
+    api_secret: 
+    callback_path: 
+
+production:
+    api_key: 
+    api_secret: 
+    callback_path: 
