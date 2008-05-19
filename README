@@ -13,7 +13,8 @@ Setup
 3. Fill in your appropriate app settings in bebo.yml. Ensure that your app name is right.
 4. Generate the first migration for your users table using: script/generate beboist_user_migration
 5. rake db:migrate
-6. In your application.rb, insert the following filters:
+6. In your application.rb, insert the following:
+                include BeboControllerExtensions
 		before_filter :reject_unadded_users
 		before_filter :find_bebo_user
 7. Write your app, and keep an eye on your logs to catch any possible error messages.
