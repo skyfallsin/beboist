@@ -39,6 +39,7 @@ class BeboConnection
   end
   
   def signature(parameters={})
+    raise "You need to specify an :api_secret key in your bebo.yml" unless @auth_data["api_secret"]
     # signature requires an alphabetically sorted key-value list joined by ''
     # prepended with the secret key
     parameters = parameters.sort
