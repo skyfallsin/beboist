@@ -63,6 +63,6 @@ class BeboResponseParser
   
   def parse
     raise(BeboAPIResponseError, @response) if @response.include?("error")
-    JSON.unparse(@response)
+    JSON.parse(@response)
   end
 end
